@@ -56,6 +56,8 @@ local plugins = {
       table.insert(M.sources, {name = "crates"})
       return M
     end,
+    event = "InsertEnter",
+    dependencies = "zbirenbaum/copilot-cmp",
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -84,6 +86,41 @@ local plugins = {
       vim.cmd [[silent! GoInstallDeps]]
     end,
   },
+  -- 🔥 Copilot
+  {
+    "zbirenbaum/copilot.lua",
+    lazy = true,
+    cmd = "Copilot",
+    event = "InsertEnter",
+    opts = function()
+      return require "custom.configs.copilot"
+    end,
+    config = function()
+      require("copilot").setup()
+    end
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    lazy = true,
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
+--  {
+--    "github/copilot.vim",
+--    cmd = "Copilot",
+--    config = function()
+--      require("copilot.vim").setup()
+--    end
+--  },
+--  {
+--    -- a ranger-like plugin
+--    "theniceboy/joshuto.nvim",
+--    init = function()
+--      require("joshuto").joshuto()
+--    end
+--  }
 }
 
 return plugins
