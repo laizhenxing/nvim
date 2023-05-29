@@ -114,13 +114,44 @@ local plugins = {
 --      require("copilot.vim").setup()
 --    end
 --  },
+  --🔥 🔥 joshuto: a ranger-like plugin 
 --  {
---    -- a ranger-like plugin
 --    "theniceboy/joshuto.nvim",
 --    init = function()
 --      require("joshuto").joshuto()
 --    end
---  }
+--  },
+  -- 🔥file manager
+  {
+    "is0n/fm-nvim",
+    cmd = "Fm",
+ --   opts = function()
+ --     require("custom.configs.fm")
+ --   end,
+    init = function()
+      require("fm-nvim").setup{
+      }
+    end
+  },
+--  -- 🔥lazygit
+--  {
+--    "kdheepak/lazygit.nvim",
+--    dependencies =  {
+--        "nvim-telescope/telescope.nvim",
+--        "nvim-lua/plenary.nvim"
+--    },
+--    config = function()
+--        require("telescope").load_extension("lazygit")
+--    end,
+--  },
+  -- Symbols-outline
+  {
+    "simrat39/symbols-outline.nvim",
+    cmd = "SymbolsOutline",
+    config = function()
+      require("symbols-outline").setup()
+    end
+  },
 }
 
 return plugins
