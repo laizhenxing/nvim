@@ -29,6 +29,8 @@ opt.mouse = "a"
 
 -- Numbers
 opt.number = true
+-- 设置相对行号
+opt.relativenumber = true 
 opt.numberwidth = 2
 opt.ruler = false
 
